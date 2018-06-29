@@ -8,27 +8,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.qa.tracker.entity.Movie;
-import com.qa.tracker.service.MovieService;
+import com.qa.tracker.entity.Showing;
+import com.qa.tracker.service.ShowingService;
 
-@RequestMapping("/movie")
+@RequestMapping("/showing")
 @RestController
-public class MovieController {
-	
+public class ShowingController {
+
 	@Autowired
-	MovieService movieService;
+	ShowingService showingService; 
 	
 	@RequestMapping("/get")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public List<Movie> getAllMovies() {
-		return movieService.getAllMovies();
+	public List<Showing> getAllShowings() {
+		return showingService.getAllShowings();
 	}
-	
-	
-	@RequestMapping("/getMovie/{movieId}")
+
+	@RequestMapping("/getShowing/{showingId}")
 	@CrossOrigin(origins = "http://localhost:4200")
-	public Movie getMovieById(@PathVariable Integer movieId) {
-		return movieService.getMovieById(movieId);
+	public Showing getShowingById(@PathVariable Integer showingId) {
+		return showingService.getShowingById(showingId);
 	}
-	
 }
